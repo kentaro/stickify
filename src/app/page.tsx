@@ -39,11 +39,16 @@ export default function Home() {
               <h1 className="font-bold text-xl text-center mb-4">
                 {config.description}
               </h1>
-              <Button asChild>
-                <Link href="https://www.icloud.com/shortcuts/5cf2cc69406346a6902426b5baaf8822">
-                  StickifyをiPhoneにインストール
-                </Link>
-              </Button>
+              <div className="text-center mb-4">
+                <Button asChild>
+                  <Link href="https://www.icloud.com/shortcuts/5cf2cc69406346a6902426b5baaf8822">
+                    StickifyをiPhoneにインストール
+                  </Link>
+                </Button>
+              </div>
+              <Link href="https://suzuri.jp/stickify" className="underline">
+                みんなのステッカーは、SUZURIのStickifyストアで販売中。
+              </Link>
             </div>
           </CardHeader>
           <CardContent>
