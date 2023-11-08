@@ -24,9 +24,9 @@ export default function RootLayout({
   return (
     <html>
       <head>
-        <meta property="og:image:alt" content={config.title} />
+        <meta property="og:image:alt" content={`${config.title}: ${config.description}`} />
         <meta property="og:image:type" content="image/png" />
-        <meta property="og:image" content="/hero.png" />
+        <meta property="og:image" content={`${config.url}/hero.png`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
       </head>
