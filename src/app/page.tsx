@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { Download } from "lucide-react";
+
 import {
   Card,
   CardContent,
@@ -13,7 +15,7 @@ import { Separator } from "@/components/ui/separator";
 
 import config from "@/config";
 import { Button } from "@/components/ui/button";
-import YouTubePlayer from "./youtube";
+import YouTubePlayer from "../components/youtube";
 
 export default function Home() {
   return (
@@ -23,7 +25,7 @@ export default function Home() {
           <CardHeader></CardHeader>
           <CardContent>
             <Image
-              src="/hero.webp"
+              src="/hero.png"
               alt="Image"
               width={450}
               height={450}
@@ -40,15 +42,13 @@ export default function Home() {
                 {config.description}
               </h1>
               <div className="text-center mb-4">
-                <Button asChild>
+                <Button>
+                  <Download className="mr-2 h-4 w-4" />
                   <Link href="https://www.icloud.com/shortcuts/5cf2cc69406346a6902426b5baaf8822">
-                    StickifyをiPhoneにインストール
+                    まずはStickifyをインストール！
                   </Link>
                 </Button>
               </div>
-              <Link href="https://suzuri.jp/stickify" className="underline">
-                みんなのステッカーは、SUZURIのStickifyストアで販売中。
-              </Link>
             </div>
           </CardHeader>
           <CardContent>
@@ -56,23 +56,30 @@ export default function Home() {
               <CardHeader>
                 <CardTitle className="text-lg">Stickifyの使い方</CardTitle>
                 <CardDescription>
-                  ちょっとコツをおぼえれば一瞬で作れます。
+                  まずはこの動画をご覧ください。インストールしたiPhoneのショートカットを使って、さっそくステッカーを作ってみましょう。
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="flex justify-center">
+                <div className="mx-auto flex justify-center">
                   <YouTubePlayer videoId="MIQYYtswlyg" />
                 </div>
+                <div className="text-center mt-8">
+                  さあ、素敵なステッカーを作ってみましょう！
+                  <br />
+                  <Link href="https://suzuri.jp/stickify" className="underline">
+                    みんなのステッカーはSUZURIで販売中。
+                  </Link>
+                </div>
               </CardContent>
+              <CardFooter></CardFooter>
             </Card>
           </CardContent>
-          <CardFooter className="flex justify-between"></CardFooter>
         </Card>
         <Separator />
         <div className="text-center m-4">
-          このサービスは栗林健太郎が個人で運営しています。
+          このサービスについてのご意見・ご要望は
           <br />
-          ご要望は、kentarok@gmail.comか、Xの
+          kentarok@gmail.comか、Xの
           <Link href="https://x.com/kentaro">@kentaro</Link>へ。
         </div>
       </div>
