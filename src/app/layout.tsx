@@ -22,7 +22,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html>
+      <head>
+        <meta property="og:image:alt" content={config.title} />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image" content="/hero.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
