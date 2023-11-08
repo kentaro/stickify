@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { AlertCircle } from "lucide-react";
 import { Download } from "lucide-react";
 
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import {
   Card,
   CardContent,
@@ -57,6 +59,13 @@ export default function Home() {
                 <CardTitle className="text-lg">Stickifyの使い方</CardTitle>
                 <CardDescription>
                   まずはこの動画をご覧ください。インストールしたiPhoneのショートカットを使って、さっそくステッカーを作ってみましょう。
+                  <Alert variant="destructive" className="mt-4">
+                    <AlertCircle className="h-4 w-4" />
+                    <AlertTitle>注意！</AlertTitle>
+                    <AlertDescription>
+                      Stickifyで共有した画像は、誰からでも見られる状態で公開されます。その点ご了承の上でご利用ください。
+                    </AlertDescription>
+                  </Alert>
                 </CardDescription>
               </CardHeader>
               <CardContent>
