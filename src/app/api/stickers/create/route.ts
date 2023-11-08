@@ -1,13 +1,16 @@
 import { NextRequest, NextResponse } from "next/server"
 import axios from "axios";
 
+import config from "@/config";
+
 export async function POST(req: NextRequest) {
   const formData = await req.formData()
   const image = formData.get("image")
 
   if (!image) {
     return NextResponse.json({
-      "x-error": "ファイルがありません。"
+      "error": true,
+      "message": "画像を指定してください。"
     }, {
       status: 400
     })
@@ -19,8 +22,8 @@ export async function POST(req: NextRequest) {
 
   const response = await axios.post("https://suzuri.jp/api/v1/materials", {
     texture: base64_url,
-    title: "Stickify",
-    description: "ステッカー制作ツールStickify: https://stickify.xyz",
+    title: config.title,
+    description: `${config.description} ${config.url}`,
     price: 0,
     products: [
       {
@@ -34,19 +37,20 @@ export async function POST(req: NextRequest) {
       "Content-Type": "application/json"
     },
   }).then((res) => {
-    const url = res.data.products[0].url;
+    const url = res.data.products[0].sampleUrl;
 
     return NextResponse.json({
-      "x-callback": url,
-      "x-success": "ステッカーを作成しました。",
-      ...res.data,
+      "shopUrl": url,
+      "message": "ステッカーを作成しました。",
     }, {
       status: res.status
     })
   }).catch((e) => {
+    console.error(e.response.data.error.message)
+
     return NextResponse.json({
-      "x-error": e.response.data.error.message,
-      ...e.response.data,
+      "error": true,
+      "message": "ステッカーの作成に失敗しました。",
     }, {
       status: 400
     })
