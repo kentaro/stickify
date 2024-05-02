@@ -49,7 +49,7 @@ export default function Home() {
                   <br />
                   （ステッカーの他、アクキーにも対応しました）
                 </p>
-                <div className="flex space-x-4 justify-center">
+                <div className="flex justify-center">
                   <Button className="mr-5">
                     <Download className="mr-2 h-4 w-4" />
                     <Link href="https://www.icloud.com/shortcuts/721d39320709453aa6e376e52abb6352">
