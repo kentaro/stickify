@@ -6,14 +6,14 @@ import "./globals.css";
 
 import config from "@/config";
 
-export const fontSans = FontSans({
+const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
   title: config.title,
-  description: config.description
+  description: config.description,
 };
 
 export default function RootLayout({
@@ -24,7 +24,10 @@ export default function RootLayout({
   return (
     <html>
       <head>
-        <meta property="og:image:alt" content={`${config.title}: ${config.description}`} />
+        <meta
+          property="og:image:alt"
+          content={`${config.title}: ${config.description}`}
+        />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image" content={`${config.url}/hero.png`} />
         <meta property="og:image:width" content="1200" />
