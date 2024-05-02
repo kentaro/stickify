@@ -6,6 +6,7 @@ import config from "@/config";
 export async function POST(req: NextRequest) {
   const formData = await req.formData()
   const image = formData.get("image")
+  const itemId = formData.get("item_id") || "11"
 
   if (!image) {
     return NextResponse.json({
@@ -27,7 +28,7 @@ export async function POST(req: NextRequest) {
     price: 0,
     products: [
       {
-        itemId: 11,
+        itemId: Number(itemId),
         published: true,
       }
     ],
@@ -41,7 +42,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({
       "shopUrl": url,
-      "message": "ステッカーを作成しました。",
+      "message": "アイテムを作成しました。",
     }, {
       status: res.status
     })
@@ -50,7 +51,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({
       "error": true,
-      "message": "ステッカーの作成に失敗しました。",
+      "message": "アイテムの作成に失敗しました。",
     }, {
       status: 400
     })

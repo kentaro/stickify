@@ -43,13 +43,26 @@ export default function Home() {
               <h1 className="font-bold text-xl text-center mb-4">
                 {config.description}
               </h1>
-              <div className="text-center mb-4">
-                <Button>
-                  <Download className="mr-2 h-4 w-4" />
-                  <Link href="https://www.icloud.com/shortcuts/5cf2cc69406346a6902426b5baaf8822">
-                    まずはStickifyをインストール！
-                  </Link>
-                </Button>
+              <div className="text-center">
+                <p className="mb-4">
+                  まずは以下のボタンからショートカットをインストールしてください。
+                  <br />
+                  （ステッカーの他、アクキーにも対応しました）
+                </p>
+                <div className="flex space-x-4 justify-center">
+                  <Button className="mr-5">
+                    <Download className="mr-2 h-4 w-4" />
+                    <Link href="https://www.icloud.com/shortcuts/721d39320709453aa6e376e52abb6352">
+                      ステッカーを作る
+                    </Link>
+                  </Button>
+                  <Button>
+                    <Download className="mr-2 h-4 w-4" />
+                    <Link href="https://www.icloud.com/shortcuts/c885acbe59b04ffd9e518bd195533aea">
+                      アクキーを作る
+                    </Link>
+                  </Button>
+                </div>
               </div>
             </div>
           </CardHeader>
